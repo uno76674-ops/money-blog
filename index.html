@@ -3,94 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Blog</title>
+    <title>Мой Финансовый Блог</title>
     
     <!-- Код подтверждения Яндекса -->
     <meta name="yandex-verification" content="255f3cb1c44747317569065edbb1b362a8361c22" />
 
+    <!-- Подключение вашего файла стилей (если он нужен) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Новые стили с неоновым свечением -->
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #0d0e15;
-            color: #ffffff;
+            background-color: #0b0c10;
+            color: #c5c6c7;
             margin: 0;
-            padding: 20px;
+            padding: 20px 10px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
-            overflow: hidden;
-            position: relative;
         }
 
-        /* Неоновые фоновые свечения */
-        body::before, body::after {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: min-content;
-            filter: blur(120px);
-            z-index: 1;
-            opacity: 0.4;
-        }
-        body::before {
-            background: #00f2fe;
-            top: -50px;
-            left: -50px;
-        }
-        body::after {
-            background: #9b51e0;
-            bottom: -50px;
-            right: -50px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 35px 25px;
-            border-radius: 24px;
+        header {
             text-align: center;
-            max-width: 400px;
+            margin-bottom: 30px;
+            padding: 20px;
             width: 100%;
-            z-index: 2;
-            box-sizing: border-box;
-            
-            /* Двойной контур и яркий неоновый фиолетовый свет */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 25px rgba(155, 81, 224, 0.2), 
-                        inset 0 0 15px rgba(255, 255, 255, 0.05);
+            max-width: 600px;
         }
 
-        h1 {
+        header h1 {
             font-size: 32px;
-            font-weight: 800;
-            margin-top: 0;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            color: #fff;
+            margin: 0 0 10px 0;
             background: linear-gradient(45deg, #00f2fe, #4facfe, #9b51e0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* Неоновый отсвет текста */
-            text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
         }
 
-        p {
-            font-size: 15px;
-            color: #b3b3ba;
-            line-height: 1.7;
-            margin-bottom: 0;
+        header p {
+            color: #66fcf1;
+            font-size: 16px;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            box-sizing: border-box;
+        }
+
+        .post {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .post:hover {
+            border-color: #9b51e0;
+            box-shadow: 0 0 20px rgba(155, 81, 224, 0.3);
+        }
+
+        .post h2 {
+            font-size: 22px;
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .partner-link {
+            color: #00f2fe;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dashed #00f2fe;
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+        }
+
+        .partner-link:hover {
+            color: #9b51e0;
+            border-bottom-color: #9b51e0;
+        }
+
+        .ad-banner {
+            background: rgba(155, 81, 224, 0.05);
+            border: 1px dashed #9b51e0;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(155, 81, 224, 0.1);
+        }
+
+        .ad-label {
+            font-size: 11px;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 10px 0;
+        }
+
+        .premium-post {
+            border-color: rgba(255, 0, 127, 0.3);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.1);
+        }
+
+        .premium-post:hover {
+            border-color: rgb(255, 0, 127);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+        }
+
+        .premium-post h2 {
+            color: #ff007f;
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+        }
+
+        .blurred-content {
+            filter: blur(4px);
+            opacity: 0.5;
+            user-select: none;
+            pointer-events: none;
+            margin-bottom: 20px;
+        }
+
+        .paywall-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .pay-btn {
+            background: linear-gradient(45deg, #ff007f, #9b51e0);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+            transition: transform 0.2s;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .pay-btn:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Money Blog</h1>
-        <p>Добро пожаловать! Сайт успешно создан и подтвержден в Яндексе. Совсем скоро здесь появятся первые статьи и полезные материалы о финансах, инвестициях и заработке.</p>
-    </div>
+
+    <header>
+        <h1>💵 Прибыльный Блог</h1>
+        <p>Инвестиции, технологии и заработок</p>
+    </header>
+
+    <main class="container">
+        <!-- СТАТЬЯ 1 -->
+        <article class="post">
+            <h2>Как выбрать лучший гаджет в 2026 году?</h2>
+            <p>Сегодня мы разберем новинки техники. Если вы хотите сэкономить, рекомендую покупать технику на проверенных площадках.</p>
+            <p>Рекомендую заглянуть на <a href="https://yandex.ru" target="_blank" class="partner-link">Яндекс Маркет</a>, там сейчас скидки.</p>
+        </article>
+
+        <!-- РЕКЛАМНЫЙ БАННЕР -->
+        <div class="ad-banner">
+            <p class="ad-label">Реклама | ООО "Яндекс"</p>
+            <div id="yandex_rtb_R-A-123456-1">
+                <span style="color: #66fcf1; text-shadow: 0 0 8px rgba(102, 252, 241, 0.4);">[Здесь будет отображаться баннер Яндекс.Директ]</span>
+            </div>
+        </div>
+
+        <!-- СТАТЬЯ 2 (Paywall) -->
+        <article class="post premium-post">
+            <h2>🔥 Секретная стратегия заработка на акциях</h2>
+            <p>Введение: Инвестиции требуют системного подхода. Важно диверсифицировать портфель и следить за трендами рынка...</p>
+            
+            <div id="premium-content" class="blurred-content">
+                <hr style="border-color: rgba(255,255,255,0.1)">
+                <h3>Инструкция по покупке акций:</h3>
+                <p>1. Покупаем активы компании Х при падении на 5%.</p>
+                <p>2. Фиксируем прибыль на уровне +15%.</p>
+                <p>Это закрытая информация, доступная только спонсорам.</p>
+            </div>
+
+            <div id="paywall-gate" class="paywall-box">
+                <p>Вы прочитали бесплатную часть. Полный гайд доступен после оплаты.</p>
+                <button class="pay-btn" onclick="processPayment()">Открыть статью за 199 ₽</button>
+            </div>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+    
+    <script>
+    window.yaContextCb = window.yaContextCb || [];
+    window.yaContextCb.push(()=>{
+      // Активация рекламного блока
+    });
+    </script>
+    <script src="https://yastatic.net" async></script>
 </body>
 </html>
+
