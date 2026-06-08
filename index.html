@@ -11,8 +11,8 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f4f4f6;
-            color: #111111;
+            background-color: #0d0e15;
+            color: #ffffff;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -20,26 +20,69 @@
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
         }
+
+        /* Неоновые фоновые свечения */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: min-content;
+            filter: blur(120px);
+            z-index: 1;
+            opacity: 0.4;
+        }
+        body::before {
+            background: #00f2fe;
+            top: -50px;
+            left: -50px;
+        }
+        body::after {
+            background: #9b51e0;
+            bottom: -50px;
+            right: -50px;
+        }
+
         .card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 24px;
             text-align: center;
             max-width: 400px;
             width: 100%;
+            z-index: 2;
+            box-sizing: border-box;
+            
+            /* Двойной контур и яркий неоновый фиолетовый свет */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 25px rgba(155, 81, 224, 0.2), 
+                        inset 0 0 15px rgba(255, 255, 255, 0.05);
         }
+
         h1 {
-            font-size: 26px;
+            font-size: 32px;
+            font-weight: 800;
             margin-top: 0;
-            margin-bottom: 12px;
-            color: #222;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe, #9b51e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Неоновый отсвет текста */
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
         }
+
         p {
-            font-size: 16px;
-            color: #666666;
-            line-height: 1.6;
+            font-size: 15px;
+            color: #b3b3ba;
+            line-height: 1.7;
             margin-bottom: 0;
         }
     </style>
