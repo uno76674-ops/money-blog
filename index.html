@@ -199,10 +199,25 @@
                 <p>Это закрытая информация, доступная только спонсорам.</p>
             </div>
 
-            <div id="paywall-gate" class="paywall-box">
-                <p>Вы прочитали бесплатную часть. Полный гайд доступен после оплаты.</p>
-                <button class="pay-btn" onclick="processPayment()">Открыть статью за 199 ₽</button>
-            </div>
+            <<form method="POST" action="https://yoomoney.ru/quickpay/confirm">
+    <!-- 1. Номер вашего кошелька ЮMoney (обязательно физического лица) -->
+    <input type="hidden" name="receiver" value="4100 1103 3538 8794">
+    
+    <!-- 2. Технические параметры формы -->
+    <input type="hidden" name="quickpay-form" value="button">
+    <input type="hidden" name="targets" value="Оплата доступа к закрытой статье">
+    <input type="hidden" name="paymentType" value="AC"> <!-- AC — картой, PC — из кошелька ЮMoney -->
+    <input type="hidden" name="sum" value="199"> <!-- Стоимость товара в рублях -->
+
+    <!-- 3. САМОЕ ГЛАВНОЕ: куда ЮMoney перенаправит покупателя после списания денег -->
+    <input type="hidden" name="successURL" value="https://smartmoneyblog.com.ru">
+
+    <!-- Кнопка оплаты -->
+    <button type="submit" style="background-color: #28a745; color: white; padding: 12px 24px; border: none; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer;">
+        Открыть статью за 199 ₽
+    </button>
+</form>
+
         </article>
     </main>
 
