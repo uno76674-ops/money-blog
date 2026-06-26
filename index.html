@@ -229,6 +229,38 @@
     });
     </script>
     <script src="https://yastatic.net" async></script>
+<!-- Скрытый блок с инструкцией, который изначально никто не видит -->
+<div id="secret-content-block" style="display: none; max-width: 700px; margin: 30px auto; padding: 30px; background: #fff; border: 3px solid #28a745; border-radius: 8px;">
+    <h2 style="color: #28a745;">✓ Оплата прошла успешно! Ваш мануал:</h2>
+    
+    <h3>Шаг 1. Подготовка кошельков</h3>
+    <p>Для старта нам понадобятся два кошелька ЮMoney и аккаунт на бирже обмена...</p>
+    
+    <h3>Шаг 2. Поиск связки</h3>
+    <p>Мы используем платформу BestChange для поиска направлений обмена...</p>
+    
+    <h3>Шаг 3. Фиксация прибыли</h3>
+    <p>Выводим средства обратно на основной кошелек ЮMoney через P2P...</p>
+</div>
+
+<!-- Скрипт, который проверяет, вернулся ли человек с ЮMoney -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Проверяем, есть ли в истории перехода упоминание yoomoney
+        if (document.referrer.includes("yoomoney.ru") || document.referrer.includes("money.yandex.ru")) {
+            // Скрываем кнопку оплаты, чтобы она не мешала
+            const payForm = document.querySelector("form[action*='yoomoney']");
+            if (payForm) payForm.parentElement.style.display = "none";
+            
+            // Показываем секретный блок с инструкцией
+            document.getElementById("secret-content-block").style.display = "block";
+            
+            // Прокручиваем экран вниз к тексту мануала
+            document.getElementById("secret-content-block").scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
+
 </body>
 </html>
 
