@@ -199,19 +199,26 @@
                 <p>Это закрытая информация, доступная только спонсорам.</p>
             </div>
 
-            <form method="POST" action="https://yoomoney.ru">
-    <!-- ЗАМЕНИТЕ НА ВАШ НОМЕР КОШЕЛЬКА -->
-    <input type="hidden" name="receiver" value="4100110335388794 ">
+            <!-- Кнопка оплаты ЮMoney -->
+<form method="POST" action="https://yoomoney.ru/quickpay/confirm">
+    <!-- Укажите номер своего кошелька вместо иксов -->
+    <input type="hidden" name="receiver" value="4100110335388794">
+    
+    <!-- Технические параметры, которые требуются ЮMoney -->
     <input type="hidden" name="quickpay-form" value="button">
-    <input type="hidden" name="targets" value="Доступ к мануалу по заработку SmartMoneyBlog">
+    <input type="hidden" name="targets" value="Оплата мануала SmartMoneyBlog">
     <input type="hidden" name="paymentType" value="AC"> 
-    <input type="hidden" name="sum" value="2"> 
-
-    <!-- Перенаправление на главную со специальной меткой -->
+    <input type="hidden" name="sum" value="2"> <!-- Временно 2 рубля для проверки, потом верните 199 -->
+    
+    <!-- Ссылка, куда ЮMoney вернет человека -->
     <input type="hidden" name="successURL" value="https://smartmoneyblog.com.ru">
 
-    <button type="submit" style="background-color: #007bff; color: white; padding: 14px 35px; border: none; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer;">
+    <!-- Кнопка, на которую нажимает пользователь -->
+    <button type="submit" style="background-color: #28a745; color: white; padding: 12px 30px; border: none; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; display: block; margin: 20px auto;">
         Открыть статью за 2 ₽
+    </button>
+</form>
+
     </button>
 </form>
 
