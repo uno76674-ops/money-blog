@@ -200,30 +200,23 @@
             </div>
 
             <!-- Кнопка оплаты ЮMoney -->
-<form method="POST" action="https://yoomoney.ru/quickpay/confirm">
-    <!-- Укажите номер своего кошелька вместо иксов -->
+<!-- Кнопка оплаты ЮMoney -->
+<form method="POST" action="https://yoomoney.ru">
     <input type="hidden" name="receiver" value="4100110335388794">
-    
-    <!-- Технические параметры, которые требуются ЮMoney -->
     <input type="hidden" name="quickpay-form" value="button">
     <input type="hidden" name="targets" value="Оплата мануала SmartMoneyBlog">
     <input type="hidden" name="paymentType" value="AC"> 
-    <input type="hidden" name="sum" value="10"> <!-- Временно 2 рубля для проверки, потом верните 199 -->
+    <input type="hidden" name="sum" value="2"> <!-- Тестовые 2 рубля -->
     
-    <!-- Ссылка, куда ЮMoney вернет человека -->
+    <!-- Ссылка возврата со специальной меткой -->
     <input type="hidden" name="successURL" value="https://smartmoneyblog.com.ru">
 
-    <!-- Кнопка, на которую нажимает пользователь -->
     <button type="submit" style="background-color: #28a745; color: white; padding: 12px 30px; border: none; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; display: block; margin: 20px auto;">
-        Открыть статью за 10 ₽
+        Открыть статью за 2 ₽
     </button>
 </form>
 
-    </button>
-</form>
-
-
-    <!-- Куда ЮMoney перенаправит покупателя после списания денег -->
+            <!-- Куда ЮMoney перенаправит покупателя после списания денег -->
 <input type="hidden" name="successURL" value="https://smartmoneyblog.com.ru">
 
 </form>
