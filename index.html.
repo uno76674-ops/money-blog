@@ -201,14 +201,15 @@
 
             <!-- Кнопка оплаты ЮMoney -->
 <!-- Кнопка оплаты ЮMoney -->
-<form method="POST" action="https://yoomoney.ru">
+<form method="POST" action="https://yoomoney.ru" target="_blank">
     <input type="hidden" name="receiver" value="4100110335388794">
     <input type="hidden" name="quickpay-form" value="button">
     <input type="hidden" name="targets" value="Оплата мануала SmartMoneyBlog">
-    <input type="hidden" name="paymentType" value="AC"> 
-    <input type="hidden" name="sum" value="10"> 
+    <!-- Значение SB или AC отвечает за прием карт и СБП -->
+    <input type="hidden" name="paymentType" value="SB"> 
+    <input type="hidden" name="sum" value="10" data-type="number"> 
     
-    <!-- Ссылка возврата со специальной меткой -->
+    <!-- Ссылка возврата (Рекомендуется указать страницу СПАСИБО или саму статью) -->
     <input type="hidden" name="successURL" value="https://smartmoneyblog.com.ru">
 
     <button type="submit" style="background-color: #28a745; color: white; padding: 12px 30px; border: none; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; display: block; margin: 20px auto;">
@@ -216,12 +217,7 @@
     </button>
 </form>
 
-            <!-- Куда ЮMoney перенаправит покупателя после списания денег -->
-<input type="hidden" name="successURL" value="https://smartmoneyblog.com.ru">
-
-</form>
-
-        </article>
+   </article>
     </main>
 
     <script src="script.js"></script>
